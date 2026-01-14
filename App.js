@@ -20,7 +20,8 @@ const Header=()=>{
     )
 }
 
-const RestaurantCard=()=>{
+const RestaurantCard=(props)=>{
+    console.log(props)
     return(
         <div className="res-card">
             <img className="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2025/8/6/4e38f0a0-ea9b-480c-9a55-fa47a9b0468b_a100f7e6-9113-499d-a2e0-23681213c1df.JPG"></img>
@@ -32,18 +33,22 @@ const RestaurantCard=()=>{
     )
 }
 
+const resList=[
+    
+]
+
+
 const Body=()=>{
     return(
         <div className="body">
         <div className="search">Search</div>
         <div className="res-container">
+            <RestaurantCard 
+            resname="bena d dhaba"
+            cusine="biryani,slad,punjabi"
+            />
             <RestaurantCard/>
-            <RestaurantCard/>
-            <RestaurantCard/>
-            <RestaurantCard/>
-            <RestaurantCard/>
-            <RestaurantCard/>
-            <RestaurantCard/>
+            
         </div>
     </div>
     );

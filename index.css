@@ -26,6 +26,7 @@
     margin: 5px;
 }
 .res-card:hover{
+    cursor: pointer;
     border: 1px solid black;
 }
 .res-logo{
