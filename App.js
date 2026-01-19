@@ -21,18 +21,23 @@ const Header=()=>{
 }
 
 const RestaurantCard=(props)=>{
-    console.log(props)
+    const {resData}=props;
+    const {cloudinaryImageId,name,cuisines,avgRatingString,costForTwo,deliveryTime}=resData?.info;
+
     return(
         <div className="res-card">
-            <img className="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2025/8/6/4e38f0a0-ea9b-480c-9a55-fa47a9b0468b_a100f7e6-9113-499d-a2e0-23681213c1df.JPG"></img>
-            <h3>MeghanaFoods</h3>
-            <h4>north indian,chinese</h4>
-            <h4>4.4⭐</h4>
-            <h4>38 minutes</h4>
+            <img className="res-logo" src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }></img>
+            <h3>{name}</h3>
+            <h4>{cuisines.join(", ")}</h4>
+            <h4>{avgRatingString}⭐</h4>
+            <h4>{costForTwo}</h4>
+            <h4>DeliveryTime:-{deliveryTime}</h4>
         </div>
     )
 }
-
 
 
 const restaurantList = [
@@ -402,12 +407,12 @@ const Body=()=>{
         <div className="body">
         <div className="search">Search</div>
         <div className="res-container">
-            <RestaurantCard 
-            resname="bena d dhaba"
-            cusine="biryani,slad,punjabi"
-            />
-            <RestaurantCard/>
-            
+            {
+              restaurantList.map((resturant)=>(
+                <RestaurantCard key={resturant.info.id} resData={resturant}/>
+
+              ))
+            }
         </div>
     </div>
     );
