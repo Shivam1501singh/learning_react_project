@@ -5,12 +5,7 @@ import Shimmer from "./Shimmer";
 
 const Body=()=>{
   const[list,setrestaurantList]=useState(restaurantList);
-
-  if(list.length ===0){
-    return <Shimmer></Shimmer>
-  }
-  
-    return(
+    return list.length===0?(<Shimmer/>):(
         <div className="body">
         <div className="filter">
           <button className="filter-btn"
@@ -26,7 +21,6 @@ const Body=()=>{
             {
               list.map((resturant)=>(
                 <RestaurantCard key={resturant.info.id} resData={resturant}/>
-
               ))
             }
         </div>

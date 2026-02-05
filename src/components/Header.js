@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Header=()=>{
+    const[btnname,setbtnname]=useState("Login");
+    console.log("Header component rendered");
     return (
         <div className="header">
             <div className="logo-container">
@@ -10,9 +14,12 @@ const Header=()=>{
                     <li>AboutUs</li>
                     <li>ContactUs</li>
                     <li>Cart</li>
+                    <button className="login-button" onClick={()=>{setbtnname("Logout")}}>{btnname}</button>
                 </ul>
+                
             </div>
         </div>
     )
 }
+
 export default Header;
