@@ -48,3 +48,6 @@
 /* .login-button{
     padding: 0 20px;
 } */
+.filter{
+    display: flex;
+}

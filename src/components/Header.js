@@ -14,7 +14,7 @@ const Header=()=>{
                     <li>AboutUs</li>
                     <li>ContactUs</li>
                     <li>Cart</li>
-                    <button className="login-button" onClick={()=>{setbtnname("Logout")}}>{btnname}</button>
+                    <button className="login-button" onClick={()=>{btnname==="Login"? setbtnname("Logout"):setbtnname("Login")}}>{btnname}</button>
                 </ul>
                 
             </div>
