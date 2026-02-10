@@ -4,8 +4,9 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/Error";
-import { createBrowserRouter,RouterProvider} from "react-router-dom";
+import { createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 import Contact from "./components/Contact";
+import Resturantmenu from "./components/Resturantmenu";
 
 
 
@@ -13,7 +14,7 @@ const Applayout=()=>{
     return(
         <div className="App">
             <Header/>
-            <Body />
+            <Outlet/>
         </div>
     )
 }
@@ -22,16 +23,27 @@ const approuter=createBrowserRouter([
     {
         path:"/",
         element:<Applayout/>,
+        children:[
+            {
+                path:"/",
+                element:<Body/>
+            },
+            {
+                path:"/about",
+                element:<About/>
+            },
+            {
+                path:"/contact",
+                element:<Contact/>
+            },
+            {
+                path:"/resturants/:resId",
+                element:<Resturantmenu/>
+            }
+        ],
         errorElement:<Error/>
     },
-    {
-        path:"/about",
-        element:<About/>
-    },
-    {
-        path:"/contact",
-        element:<Contact/>
-    },
+    
 ]);
 
 
